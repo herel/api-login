@@ -68,6 +68,11 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
+  attributes: {
+    id: { type: 'string', columnName: '_id' }
+  },
+
+
   /******************************************************************************
   *                                                                             *
   * The set of DEKs (data encryption keys) for at-rest encryption.              *
