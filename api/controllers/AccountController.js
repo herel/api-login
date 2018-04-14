@@ -6,7 +6,7 @@ function validEmail(email) {
 
 module.exports = {
 	create : function(req,res){
-		var params = req.params.all();
+		var params = req.allParams();
 
 		//validamos los campos
 		if(!params.firstName || params.firstName.length <= 3)
