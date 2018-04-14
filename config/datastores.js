@@ -32,6 +32,12 @@ module.exports.datastores = {
   *                                                                          *
   ***************************************************************************/
 
+  mongodb:{
+    adapter   : process.env.MAIN_DB_ADAPTER,
+    host      : process.env.MAIN_DB_HOST,
+    port      : process.env.MAIN_DB_PORT,
+    database  : process.env.MAIN_DB_DB
+  },
   default: {
 
     /***************************************************************************
