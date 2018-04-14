@@ -28,6 +28,7 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+  'POST /v1.0/account' : 'AccountController.create',
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
