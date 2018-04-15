@@ -3,6 +3,38 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10
 
 module.exports = {
+	update : function(userId,params){
+		return new Promise(function(resolve, reject) {
+			User.native(function(err, collection) {
+				if(err)
+					return reject({ error : true, message : "Internal server error", status : 500 });
+				var query = { $set : { }};
+				if(params.firstName)
+					query.$set.firstName = params.firstName;
+				if(params.lastName)
+					query.$set.lastName  = params.lastName;
+
+				collection.findAndModify({
+					_id : ObjectId(userId.toString()),
+					active : true
+				},{
+					// sort
+				},query,{
+					new : true,
+					fields : {
+						password : 0
+					}
+				},function(err,result){
+					if(err)
+						return reject({ error : true, message : "Internal server error", status : 500 });
+					if(result && result.value)
+						return resolve(result.value);
+					//el usuario no existe
+					return resolve(false);
+				});
+			});	
+		});
+	},
 	validPassword : function(hashdb,plainpassword){
 		return new Promise(function(resolve, reject) {
 			bcrypt.compare(plainpassword, hashdb, function(err, res) {
