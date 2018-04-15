@@ -9,12 +9,12 @@ module.exports = {
 		var params = req.allParams();
 		if(!params.email || !validEmail(params.email))
 			return res.send(401, { error : true, message : "El correo es obligatorio ó no es valido", status : 401 });
-		if(!params.password || params.password.length <= 5)
+		if(!params.password || params.password.length < 5)
 			return res.send(401, { error : true, message : "la contraseña es muy corta", status : 401 });
 		async.waterfall([
 			function existUser(cb){
 				UserService.findByEmail(params.email)
-					.then(function($user)){
+					.then(function($user){
 						if(!$user)
 							return cb(null,{ error : true, status : 404 , message : "El usuario no existe"});
 						return cb(null,$user);
@@ -54,7 +54,7 @@ module.exports = {
 			return res.send(401, { error : true, message : "El nombre es obligatorio o es muy corto", status : 401 });
 		if(!params.lastName || params.lastName.length <= 3)
 			return res.send(401, { error : true, message : "El apellido es obligatorio o es muy corto", status : 401 });
-		if(!params.password || params.password.length <= 5)
+		if(!params.password || params.password.length < 5)
 			return res.send(401, { error : true, message : "la contraseña es muy corta", status : 401 });
 		// validamos el email
 		if(!params.email || !validEmail(params.email))
