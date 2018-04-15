@@ -13,7 +13,20 @@ module.exports = {
 			return res.send(401, { error : true, message : "la contraseña es muy corta", status : 401 });
 		async.waterfall([
 			function existUser(cb){
-				UserService.existsByEmail(params.email)
+				UserService.findByEmail(params.email)
+					.then(function($user)){
+						if(!$user)
+							return cb(null,{ error : true, status : 404 , message : "El usuario no existe"});
+						return cb(null,$user);
+					}).catch(cb);
+			},
+			function validPass($user,cb){
+				UserService.validPassword($user.password,params.password)
+					.then(function($valid){
+						if(!$valid)
+							return cb({ error : true, status : 401 , message : "La contraseña no es correcta "});
+						return cb(null,$user);
+					})
 			}
 		],function done(err,result){
 			if(err && err.status)

@@ -3,6 +3,19 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10
 
 module.exports = {
+	validPassword : function(hashdb,plainpassword){
+		return new Promise(function(resolve, reject) {
+			bcrypt.compare(plainpassword, hashdb, function(err, res) {
+				if (err)
+					return reject({
+						error: true,
+						message: 'Internal server error',
+						status: 500
+					})	
+				return resolve(res ? true : false)
+			})
+		})
+	},
 	password: function(password) {
 	return new Promise(function(resolve, reject) {
 	  bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -23,6 +36,22 @@ module.exports = {
 	    })
 	  })
 	})
+	},
+	findByEmail   : function(email){
+		return new Promise(function(resolve, reject) {
+			User.native(function(err, collection) {
+				if(err)
+					return reject({ error : true, message : "Internal server error" , status : 500 });
+				collection.findOne({
+					active : true,
+					email  : email
+				},function(err,user){
+					if(err)
+						return reject({ error : true, message : "Internal server error", statis : 500 });
+					return resolve( user );
+				});
+			})
+		});
 	},
 	existsByEmail : function(email){
 		return new Promise(function(resolve, reject) {
