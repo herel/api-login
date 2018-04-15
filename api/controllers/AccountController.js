@@ -16,7 +16,7 @@ module.exports = {
 				UserService.findByEmail(params.email)
 					.then(function($user){
 						if(!$user)
-							return cb(null,{ error : true, status : 404 , message : "El usuario no existe"});
+							return cb({ error : true, status : 404 , message : "El usuario no existe"});
 						return cb(null,$user);
 					}).catch(cb);
 			},
