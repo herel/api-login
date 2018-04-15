@@ -38,6 +38,7 @@ module.exports = {
 			function inserUser($HASHpassword,cb){
 				UserService.create(params,$HASHpassword)
 					.then(function($user){
+						delete $user.password;
 						return cb(null,$user);
 					}).catch(cb);
 			}
