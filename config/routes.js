@@ -29,7 +29,8 @@ module.exports.routes = {
   },
 
   'POST /v1.0/account' : 'AccountController.create',
-  'POST /v1.0/account/login' : 'AccountController.login'
+  'POST /v1.0/account/login' : 'AccountController.login',
+  'PUT /v1.0/account'        : 'UserController.update',  
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
