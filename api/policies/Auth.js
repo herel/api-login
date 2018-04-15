@@ -1,4 +1,4 @@
-module.exports = function(req, res, next) {
+module.exports = async function(req, res, next) {
 	var token = req.headers.authorization;
 	// si no viene el token mandamos el error 401
 	if(!token)

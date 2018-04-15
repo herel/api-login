@@ -10,7 +10,8 @@
 
 module.exports.policies = {
 
-  '*': ['Auth'],
   AccountController : true,
-  UserController 	: ["Auth"]
+  UserController 	: {
+  	update : 'Auth'
+  }
 };
