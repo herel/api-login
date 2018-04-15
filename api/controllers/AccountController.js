@@ -39,6 +39,7 @@ module.exports = {
 					}).catch(cb);
 			}
 		],function done(err,result){
+			console.log(err);
 			if(err && err.status)
 				return res.send(err.status,err);
 			else if(err)
