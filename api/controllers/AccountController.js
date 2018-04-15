@@ -27,6 +27,16 @@ module.exports = {
 							return cb({ error : true, status : 401 , message : "La contraseña no es correcta "});
 						return cb(null,$user);
 					})
+			},
+			function createToken($user,cb){
+				TokenService.create($user)
+					.then(function($token){
+						delete $user.password;
+						return cb(null, {
+							user : $user,
+							token : $token
+						})
+					}).catch(cb);
 			}
 		],function done(err,result){
 			if(err && err.status)
