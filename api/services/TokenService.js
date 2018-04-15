@@ -1,6 +1,20 @@
 var jwt = require("jsonwebtoken");
+var moment = require('moment');
 
 module.exports = {
+	decode: function(token) {
+		return new Promise(function(resolve, reject) {
+			jwt.verify(token, process.env.TOKEN_KEY, function(err, decoded) {
+				if (err)
+					return reject({
+						error: true,
+						message: "Ocurrio un error al decodificar el token ",
+						status: 500
+					});
+				return resolve(decoded);
+			});
+		});
+	},
 	create : function(data,expire){
 		return new Promise(function(resolve, reject) {
 			var create = moment().unix();
