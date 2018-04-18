@@ -1,4 +1,4 @@
-# api-login sails
+# Registro de usuarios, login y autenticación con sails, mongodb y redis
 
 Parte 1 Como registrar usuario e incriptar contraseña http://herelodin.com/como-programar-una-api-para-registrar-usuarios-con-sails-1-0-x-mongodb-y-redis/?ref=github
 
