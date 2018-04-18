@@ -1,27 +1,11 @@
-# api-login
+# api-login sails
 
-a [Sails v1](https://sailsjs.com) application
+Parte 1 Como registrar usuario e incriptar contraseña http://herelodin.com/como-programar-una-api-para-registrar-usuarios-con-sails-1-0-x-mongodb-y-redis/?ref=github
 
+Parte 2 Como iniciar sesion y generar token http://herelodin.com/como-crear-un-sistema-de-login-con-tokens-con-nuestra-api-en-sails-mongodb-y-redis/?ref=github
 
-### Links
-
-+ [Get started](https://sailsjs.com/get-started)
-+ [Sails framework documentation](https://sailsjs.com/documentation)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+Parte 3 uso de policies y actualiazar usuario http://herelodin.com/como-configurar-tokens-y-policies-con-sailsjs-1-0-x-en-mongodb-y-redis/?ref=github
 
 
-### Version info
-
-This app was originally generated on Sat Apr 14 2018 11:08:57 GMT-0500 (CDT) using Sails v1.0.1.
-
-<!-- Internally, Sails used [`sails-generate@1.15.20`](https://github.com/balderdashy/sails-generate/tree/v1.15.20/lib/core-generators/new). -->
-
-
-
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
+Para instalar puedes usar npm install o yarn install revisa la parte 1 para configurar las variables de entorno.
 
