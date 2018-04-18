@@ -9,3 +9,9 @@ Parte 3 uso de policies y actualiazar usuario http://herelodin.com/como-configur
 
 Para instalar puedes usar npm install o yarn install revisa la parte 1 para configurar las variables de entorno.
 
+
+Puedes hacer prueba con postman en la siguiente url 
+
+1.- Registro de usuarios  POST http://api.herelodin.com/v1.0/account
+2.- LOGIN de usuarios  POST http://api.herelodin.com/v1.0/account/login
+2.- ACTUALIZAR perfil de usuario logueado PUT http://api.herelodin.com/v1.0/account
